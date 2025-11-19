@@ -20,26 +20,15 @@ async def get_123_async():
 
 def create_tables():
     sync_engine.echo = False
-    metadata_obj.drop_all(sync_engine)      # DROP TABLE workers
-    metadata_obj.create_all(sync_engine)    # CREATE TABLE workers (
-                                            #          id SERIAL NOT NULL,
-                                            #          username VARCHAR,
-                                            #          PRIMARY KEY (id)
-                                            #  )
+    metadata_obj.drop_all(sync_engine)     
+    metadata_obj.create_all(sync_engine)    
     sync_engine.echo = True
 
 
 
 def insert_data():
     with sync_engine.connect() as conn:
-        # statement - upsert, update, delete
-        # query - select
-        # stmt = """INSERT INTO workers (username) VALUES
-        #     ('Bobr'),
-        #     ('Volk');"""
-        # conn.execute(text(stmt))
-        # conn.commit()
-
+        # query builder
         stmt = insert(workers_table).values(
             [
                 {"username": "Bobr"},
@@ -49,16 +38,6 @@ def insert_data():
         conn.execute(stmt)
         conn.commit()
 
-
-
-
-
-
-
-
-
-
-# asyncio.run(get_123_async())
 
 
 
