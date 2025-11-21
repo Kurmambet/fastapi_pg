@@ -5,6 +5,18 @@ uv add fastapi pydantic pydantic-settings uvicorn
 делался COMMIT (неявно) -> begin()
 если нужен ROLLBAC -> connect() и в конце явно conn.commit()
 
+(back) C:\projects\alchemyles\back>alembic init src/migrations
+
+
+
+
+
+
+
+
+
+
+
 
 # Курс по SQLAlchemy и Alembic от Артёма Шумейко
 Курс покрывает все основные темы SQLAlchemy: Core, ORM, relationship, Alembic, конвертация ответов Алхимии в DTO.
